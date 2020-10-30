@@ -1,0 +1,60 @@
+<div>
+
+ <h1>Questions :</h1>
+<hr>
+
+</div>
+
+
+<script>
+
+function getanswer()
+{
+	document.getElementById("userans").innerHTML="";
+	var e=document.getElementsByTagName("input");
+	for(i=0;i<=e.length;i++)
+	{
+		if(e[i].type=="radio")
+		{
+			if(e[i].checked)
+			{	
+				return e[i];
+			}
+		}
+	}
+
+}
+</script>
+<div>
+
+
+
+{% for i in ex %}
+
+<table>
+
+<tr><td> {{i.id}}) {{i.que}} ?</td></tr><br>
+
+<tr><td><input type ="radio"  name={{i.id}}>{{i.op1}} </td></tr>
+
+<tr><td> <input type ="radio"  name={{i.id}}>{{i.op2}} </td></tr>
+
+<tr><td> <input type ="radio"   name={{i.id}}>{{i.op3}} </td></tr>
+
+<tr><td> <input type ="radio" name={{i.id}}>{{i.op4}} </td></tr>
+
+<tr><td> <label id="ans" style="display:none"> {{i.ans}} </label></td></tr><br>
+
+</table>
+
+{% endfor %}
+<br>
+<div>
+
+
+<input type="submit" value="Submit" onclick="getanswer()"/>
+<br>
+<b id="userans"></b>
+</div>
+
+</div>
